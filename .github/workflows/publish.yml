@@ -71,7 +71,7 @@ jobs:
             - 📱 **Offline operation** with bundled documentation
 
             ### Installation Options
-            
+
             **Option 1: NPX (Recommended)**
             ```json
             {

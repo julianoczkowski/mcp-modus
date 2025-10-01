@@ -1,5 +1,9 @@
 # MCP Modus
 
+<div align="center">
+  <img src="assets/hero_modus_mcp.png" alt="Modus 2 MCP" width="600">
+</div>
+
 [![NPM Version](https://img.shields.io/npm/v/@julianoczkowski/mcp-modus)](https://www.npmjs.com/package/@julianoczkowski/mcp-modus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

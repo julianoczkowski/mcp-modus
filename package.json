@@ -1,0 +1,49 @@
+{
+  "name": "@julianoczkowski/mcp-modus",
+  "version": "1.0.0",
+  "description": "MCP server for searching Modus Web Components documentation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-modus": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "download-docs.js"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "npm run build",
+    "postinstall": "node download-docs.js",
+    "test": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "modus",
+    "web-components",
+    "documentation",
+    "trimble"
+  ],
+  "author": "Julian Oczkowski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julianoczkowski/mcp-modus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/julianoczkowski/mcp-modus/issues"
+  },
+  "homepage": "https://github.com/julianoczkowski/mcp-modus#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

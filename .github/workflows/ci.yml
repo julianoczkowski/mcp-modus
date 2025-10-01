@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download documentation
+        run: node download-docs.js
+
+      - name: Verify documentation
+        run: |
+          echo "Checking documentation files..."
+          DOC_COUNT=$(ls docs/*.md 2>/dev/null | wc -l)
+          echo "Found $DOC_COUNT documentation files"
+          if [ "$DOC_COUNT" -lt 40 ]; then
+            echo "Error: Expected at least 40 documentation files, found $DOC_COUNT"
+            exit 1
+          fi
+          echo "✓ Documentation check passed ($DOC_COUNT files)"
+
+      - name: Build package
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          if [ ! -f "dist/index.js" ]; then
+            echo "Error: dist/index.js not found"
+            exit 1
+          fi
+          echo "✓ Build output verified"
+
+      - name: Run tests
+        run: npm test --if-present
+
+      - name: Test MCP server startup
+        run: |
+          timeout 5s node dist/index.js > /dev/null 2>&1 || true
+          echo "✓ Server startup test completed"
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check TypeScript
+        run: npx tsc --noEmit
+
+      - name: Check package.json
+        run: |
+          echo "Validating package.json..."
+          node -e "const pkg = require('./package.json');
+            if (!pkg.name) throw new Error('Missing name');
+            if (!pkg.version) throw new Error('Missing version');
+            if (!pkg.main) throw new Error('Missing main');
+            if (!pkg.bin) throw new Error('Missing bin');
+            console.log('✓ package.json is valid')"

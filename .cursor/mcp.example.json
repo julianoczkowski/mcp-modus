@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "modus-docs": {
+      "comment": "After publishing to NPM, use this configuration",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@julianoczkowski/mcp-modus"
+      ]
+    }
+  },
+  "_alternative_configurations": {
+    "global_install": {
+      "comment": "If installed globally via: npm install -g @julianoczkowski/mcp-modus",
+      "command": "mcp-modus",
+      "args": []
+    },
+    "local_development": {
+      "comment": "For local testing before publishing",
+      "command": "node",
+      "args": [
+        "/absolute/path/to/mcp-modus/dist/index.js"
+      ]
+    }
+  }
+}

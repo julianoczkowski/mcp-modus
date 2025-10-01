@@ -1,0 +1,84 @@
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download documentation
+        run: node download-docs.js
+
+      - name: Build package
+        run: npm run build
+
+      - name: Verify documentation
+        run: |
+          echo "Checking documentation files..."
+          DOC_COUNT=$(ls docs/*.md 2>/dev/null | wc -l)
+          echo "Found $DOC_COUNT documentation files"
+          if [ "$DOC_COUNT" -lt 40 ]; then
+            echo "Error: Expected at least 40 documentation files, found $DOC_COUNT"
+            exit 1
+          fi
+          echo "✓ Documentation check passed"
+
+      - name: Run tests
+        run: npm test --if-present
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release v${{ steps.version.outputs.VERSION }}
+          body: |
+            ## MCP Modus v${{ steps.version.outputs.VERSION }}
+
+            ### Features
+            - 43 Modus Web Components documented
+            - 4 MCP tools for querying documentation
+            - Works with Claude Desktop and Cursor IDE
+            - Offline operation with bundled documentation
+
+            ### Installation
+            ```bash
+            npm install -g @julianoczkowski/mcp-modus
+            ```
+
+            ### What's Changed
+            See [CHANGELOG.md](https://github.com/julianoczkowski/mcp-modus/blob/main/CHANGELOG.md) for details.
+
+            ### Package Stats
+            - 43 component documentation files
+            - ~58 KB compressed
+            - ~219 KB unpacked
+          draft: false
+          prerelease: false

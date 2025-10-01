@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "modus-docs": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/mcp-modus/dist/index.js"
+      ]
+    }
+  }
+}

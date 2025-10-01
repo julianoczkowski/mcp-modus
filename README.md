@@ -1,185 +1,131 @@
-# MCP Modus - Modus Web Components Documentation Server
+# MCP Modus
 
-[![CI](https://github.com/julianoczkowski/mcp-modus/actions/workflows/ci.yml/badge.svg)](https://github.com/julianoczkowski/mcp-modus/actions/workflows/ci.yml)
 [![NPM Version](https://img.shields.io/npm/v/@julianoczkowski/mcp-modus)](https://www.npmjs.com/package/@julianoczkowski/mcp-modus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An MCP (Model Context Protocol) server that provides access to Modus Web Components documentation for AI assistants.
+**AI assistant for Modus Web Components** - Get instant help with component documentation, design rules, and setup guides directly in your IDE.
 
-## Features
+## What This Does
 
-- 🔍 **Search Components**: Find components by name or keyword across 43 components
-- 📖 **Get Documentation**: Retrieve complete documentation for any component
-- 📋 **List Components**: Browse all 43 available components by category
-- 🔎 **Find by Attribute**: Discover components with specific attributes
+This MCP server gives AI assistants (like Cursor, Claude, VS Code) access to complete Modus Web Components documentation. Ask questions like:
 
-## Installation
+- _"How do I use a Modus button with primary color?"_
+- _"What are the Modus color guidelines?"_
+- _"Show me how to set up a React project with Modus components"_
+- _"Which components have a disabled attribute?"_
 
-### From NPM (after publishing)
+## Setup
 
-```bash
-npm install -g @julianoczkowski/mcp-modus
-```
+Choose one of the two options below:
 
-### Local Development
+### Option 1: NPX (Recommended - No Installation)
 
-1. Clone or download this repository
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Download the documentation files:
-
-```bash
-node download-docs.js
-```
-
-4. Build the project:
-
-```bash
-npm run build
-```
-
-## Local Testing
-
-### Testing with Claude Desktop
-
-1. Build the project:
-
-```bash
-npm run build
-```
-
-2. Add to your Claude Desktop config file:
-
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-**Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+**For any IDE with MCP support:**
 
 ```json
 {
   "mcpServers": {
     "modus-docs": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-modus/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@julianoczkowski/mcp-modus"]
     }
   }
 }
 ```
 
-3. Restart Claude Desktop
+**Benefits:** No installation required, always uses latest version, no permission issues.
 
-4. Look for the 🔌 icon to verify the server is connected
+### Option 2: Global Install
 
-### Testing with Cursor IDE
+1. **Install globally:**
 
-See **[CURSOR_SETUP.md](CURSOR_SETUP.md)** for complete Cursor-specific instructions.
-
-**Quick Setup**:
-
-1. Build the project: `npm run build`
-2. Open Cursor → Settings → Features → MCP
-3. Click "Add New MCP Server"
-4. Configure:
-   - **Name**: `Modus Docs`
-   - **Type**: `command`
-   - **Command**: `node`
-   - **Args**: `/absolute/path/to/mcp-modus/dist/index.js`
-5. Verify the status turns green
-
-Then ask Cursor questions like:
-- "Show me the Modus button component documentation"
-- "Create a form using Modus Web Components"
-
-### Testing with MCP Inspector
-
-```bash
-npx @modelcontextprotocol/inspector node dist/index.js
-```
-
-## Available Tools
-
-### `search_components`
-Search for components by name or keyword.
-
-**Parameters:**
-- `query` (string): Search term (e.g., "button", "input", "modal")
-
-### `get_component_docs`
-Get complete documentation for a specific component.
-
-**Parameters:**
-- `component` (string): Component name (e.g., "button", "card", "modal")
-
-### `list_all_components`
-List all available Modus Web Components organized by category.
-
-### `find_by_attribute`
-Find components that have a specific attribute.
-
-**Parameters:**
-- `attribute` (string): Attribute name (e.g., "disabled", "color", "size")
-
-## Example Usage in Claude
-
-Once the MCP server is connected, you can ask Claude:
-
-- "Show me the documentation for the Modus button component"
-- "Search for components related to forms"
-- "List all available Modus components"
-- "Which components have a 'disabled' attribute?"
-- "How do I use the Modus modal component?"
-
-## Publishing to NPM
-
-### Automated (Recommended)
-
-The project uses GitHub Actions for automated publishing:
-
-1. Update version and push tag:
    ```bash
-   npm version patch  # or minor/major
-   git push && git push --tags
+   npm install -g @julianoczkowski/mcp-modus
    ```
 
-2. GitHub Actions automatically:
-   - Builds and tests the package
-   - Publishes to NPM
-   - Creates GitHub release
+   > **Note**: On some systems, you may need `sudo npm install -g @julianoczkowski/mcp-modus`
 
-See [AUTOMATION.md](AUTOMATION.md) for complete setup guide.
+2. **Use this config:**
+   ```json
+   {
+     "mcpServers": {
+       "modus-docs": {
+         "command": "mcp-modus"
+       }
+     }
+   }
+   ```
 
-### Manual Publishing
+**Benefits:** Faster startup, works offline after installation.
 
-1. Update version in `package.json` if needed
+## IDE-Specific Instructions
 
-2. Login to NPM (one time):
+### For Cursor IDE
 
-```bash
-npm login
+1. Go to `Settings → Features → MCP`
+2. Click "Add New MCP Server"
+3. Use one of the JSON configs above
+
+### For VS Code (with Continue)
+
+Add to `~/.continue/config.json` using one of the JSON configs above.
+
+### For Claude Desktop
+
+Add to your config file using one of the JSON configs above:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+
+## What You Get
+
+### 📚 **Component Documentation** (43+ components)
+
+- Complete API documentation for all Modus Web Components
+- Usage examples and best practices
+- Attribute and event references
+
+### 🎨 **Design System Guidelines**
+
+- Color palettes and usage rules
+- Icon guidelines and available icons
+- Spacing, typography, and layout systems
+- Border radius and stroke guidelines
+
+### ⚙️ **Project Setup Guides**
+
+- HTML project setup instructions
+- React project integration guide
+- Theme implementation and customization
+- Testing guidelines and best practices
+
+## Example Usage
+
+Once configured, ask your AI assistant:
+
+```
+"Create a Modus button with warning color and medium size"
+"What spacing values should I use in my Modus design?"
+"How do I set up a new React project with Modus Web Components?"
+"Show me all Modus form components"
+"What are the available Modus color tokens?"
 ```
 
-Or use an NPM token:
+The AI will use the MCP server to fetch the latest documentation and provide accurate, up-to-date answers.
 
-```bash
-npm config set //registry.npmjs.org/:_authToken YOUR_NPM_TOKEN
-```
+## Troubleshooting
 
-3. Publish:
+### Server Not Connecting
 
-```bash
-npm publish --access public
-```
+- Ensure Node.js 18+ is installed: `node --version`
+- For global install: verify with `mcp-modus --help`
+- Check IDE logs for error messages
 
-## Development
+### Need Help?
 
-- `npm run build` - Build the TypeScript code
-- `npm run watch` - Watch mode for development
-- `npm test` - Run the server (for testing)
-- `node download-docs.js` - Refresh documentation
+- [GitHub Issues](https://github.com/julianoczkowski/mcp-modus/issues)
+- [Modus Web Components Docs](https://modus.trimble.com/)
 
-## License
+---
 
-MIT
+**Built for developers using Modus Web Components** | **MIT License** | **Made by Julian Oczkowski**

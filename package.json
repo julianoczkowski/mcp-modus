@@ -1,7 +1,7 @@
 {
   "name": "@julianoczkowski/mcp-modus",
-  "version": "1.0.1",
-  "description": "MCP server for searching Modus Web Components documentation",
+  "version": "1.1.0",
+  "description": "MCP server for Modus Web Components documentation, design rules, and setup guides",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -10,6 +10,8 @@
   "files": [
     "dist",
     "docs",
+    "rules",
+    "setup",
     "download-docs.js"
   ],
   "scripts": {
@@ -24,6 +26,9 @@
     "modus",
     "web-components",
     "documentation",
+    "design-system",
+    "setup-guide",
+    "development-rules",
     "trimble"
   ],
   "author": "Julian Oczkowski",

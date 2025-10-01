@@ -1,6 +1,6 @@
 {
   "name": "@julianoczkowski/mcp-modus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for searching Modus Web Components documentation",
   "type": "module",
   "main": "dist/index.js",

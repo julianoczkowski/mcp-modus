@@ -63,22 +63,43 @@ jobs:
             ## MCP Modus v${{ steps.version.outputs.VERSION }}
 
             ### Features
-            - 43 Modus Web Components documented
-            - 4 MCP tools for querying documentation
-            - Works with Claude Desktop and Cursor IDE
-            - Offline operation with bundled documentation
+            - 📚 **43 Modus Web Components** documented with complete API references
+            - 🎨 **6 Design Rule categories** (colors, icons, spacing, typography, breakpoints, radius/stroke)
+            - ⚙️ **5 Setup guides** (HTML, React, themes, testing, universal rules)
+            - 🔧 **10 MCP tools** for comprehensive development support
+            - 🖥️ **Multi-IDE support** (Claude Desktop, Cursor, VS Code)
+            - 📱 **Offline operation** with bundled documentation
 
-            ### Installation
+            ### Installation Options
+            
+            **Option 1: NPX (Recommended)**
+            ```json
+            {
+              "mcpServers": {
+                "modus-docs": {
+                  "command": "npx",
+                  "args": ["-y", "@julianoczkowski/mcp-modus"]
+                }
+              }
+            }
+            ```
+
+            **Option 2: Global Install**
             ```bash
             npm install -g @julianoczkowski/mcp-modus
             ```
 
-            ### What's Changed
-            See [CHANGELOG.md](https://github.com/julianoczkowski/mcp-modus/blob/main/CHANGELOG.md) for details.
+            ### What's New in v${{ steps.version.outputs.VERSION }}
+            - ✨ **6 new MCP tools** for design rules and setup guides
+            - 📖 **Enhanced documentation** with 54 total files
+            - 🔄 **Improved download system** fetching from 3 repositories
+            - 📋 **Simplified README** with clear setup instructions
+            - 🏗️ **Updated architecture** documentation
 
             ### Package Stats
-            - 43 component documentation files
-            - ~58 KB compressed
-            - ~219 KB unpacked
+            - 54 total documentation files (43 components + 6 rules + 5 setup)
+            - ~80 KB compressed
+            - ~350 KB unpacked
+            - 10 MCP tools across 3 categories
           draft: false
           prerelease: false

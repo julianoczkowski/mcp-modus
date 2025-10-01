@@ -1,6 +1,6 @@
 # MCP Modus
 
-<div align="center">
+<div align="left">
   <img src="assets/hero_modus_mcp.png" alt="Modus 2 MCP" width="600">
 </div>
 

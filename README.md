@@ -125,6 +125,24 @@ The AI will use the MCP server to fetch the latest documentation and provide acc
 - For global install: verify with `mcp-modus --help`
 - Check IDE logs for error messages
 
+### Removing Downloaded Documentation
+
+If you used the **NPX option** (Option 1), the documentation is temporarily cached by NPX. To clear this cache:
+
+```bash
+# Clear NPX cache for this package
+npx clear-npx-cache @julianoczkowski/mcp-modus
+
+# Or clear entire NPX cache
+npm cache clean --force
+```
+
+If you used the **Global Install option** (Option 2), uninstall with:
+
+```bash
+npm uninstall -g @julianoczkowski/mcp-modus
+```
+
 ### Need Help?
 
 - [GitHub Issues](https://github.com/julianoczkowski/mcp-modus/issues)

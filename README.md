@@ -120,7 +120,7 @@ The AI will use the MCP server to fetch the latest documentation and provide acc
 ## Security & Reliability
 
 - **🔒 Pre-bundled Documentation**: All documentation is included with the package - no runtime downloads
-- **🛡️ No External Dependencies**: Runs completely offline after installation  
+- **🛡️ No External Dependencies**: Runs completely offline after installation
 - **✅ Verified Content**: Documentation is verified during our CI/CD process
 - **🚀 Fast & Secure**: No network requests during operation
 

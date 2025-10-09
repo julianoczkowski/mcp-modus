@@ -1,3 +1,12 @@
+/**
+ * Documentation Downloader for MCP Modus
+ *
+ * Downloads the latest documentation from QAUI-Modus-Web-Components repository.
+ * Used during development and CI/CD to bundle docs with the NPM package.
+ *
+ * Usage: npm run update-docs
+ */
+
 import { writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 

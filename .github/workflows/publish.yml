@@ -9,6 +9,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -53,14 +56,18 @@ jobs:
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release v${{ steps.version.outputs.VERSION }}
+          tag_name: v${{ steps.version.outputs.VERSION }}
+          name: Release v${{ steps.version.outputs.VERSION }}
           body: |
             ## MCP Modus v${{ steps.version.outputs.VERSION }}
+
+            ### 🔒 Security & Reliability Improvements
+            - **Pre-bundled Documentation**: All docs included with package - no runtime downloads
+            - **Enhanced Security**: Removed postinstall hooks for safer installation
+            - **Offline Operation**: Works completely offline after installation
+            - **Verified Content**: Documentation verified during CI/CD process
 
             ### Features
             - 📚 **43 Modus Web Components** documented with complete API references
@@ -68,7 +75,7 @@ jobs:
             - ⚙️ **5 Setup guides** (HTML, React, themes, testing, universal rules)
             - 🔧 **10 MCP tools** for comprehensive development support
             - 🖥️ **Multi-IDE support** (Claude Desktop, Cursor, VS Code)
-            - 📱 **Offline operation** with bundled documentation
+            - 📱 **Secure offline operation** with bundled documentation
 
             ### Installation Options
 
@@ -88,13 +95,6 @@ jobs:
             ```bash
             npm install -g @julianoczkowski/mcp-modus
             ```
-
-            ### What's New in v${{ steps.version.outputs.VERSION }}
-            - ✨ **6 new MCP tools** for design rules and setup guides
-            - 📖 **Enhanced documentation** with 54 total files
-            - 🔄 **Improved download system** fetching from 3 repositories
-            - 📋 **Simplified README** with clear setup instructions
-            - 🏗️ **Updated architecture** documentation
 
             ### Package Stats
             - 54 total documentation files (43 components + 6 rules + 5 setup)

@@ -37,7 +37,7 @@ Choose one of the two options below:
 }
 ```
 
-**Benefits:** No installation required, always uses latest version, no permission issues.
+**Benefits:** No installation required, always uses latest version, no permission issues, secure pre-bundled documentation.
 
 ### Option 2: Global Install
 
@@ -60,7 +60,7 @@ Choose one of the two options below:
    }
    ```
 
-**Benefits:** Faster startup, works offline after installation.
+**Benefits:** Faster startup, works offline after installation, secure pre-bundled documentation.
 
 ## IDE-Specific Instructions
 
@@ -117,6 +117,13 @@ Once configured, ask your AI assistant:
 
 The AI will use the MCP server to fetch the latest documentation and provide accurate, up-to-date answers.
 
+## Security & Reliability
+
+- **🔒 Pre-bundled Documentation**: All documentation is included with the package - no runtime downloads
+- **🛡️ No External Dependencies**: Runs completely offline after installation  
+- **✅ Verified Content**: Documentation is verified during our CI/CD process
+- **🚀 Fast & Secure**: No network requests during operation
+
 ## Troubleshooting
 
 ### Server Not Connecting
@@ -125,17 +132,13 @@ The AI will use the MCP server to fetch the latest documentation and provide acc
 - For global install: verify with `mcp-modus --help`
 - Check IDE logs for error messages
 
-### Removing Downloaded Documentation
+### Documentation Updates
 
-If you used the **NPX option** (Option 1), the documentation is temporarily cached by NPX. To clear this cache:
+**Documentation is pre-bundled** with each release for security and reliability. No downloads occur during installation or runtime.
 
-```bash
-# Clear NPX cache for this package
-npx clear-npx-cache @julianoczkowski/mcp-modus
+### Uninstalling
 
-# Or clear entire NPX cache
-npm cache clean --force
-```
+If you used the **NPX option** (Option 1), no permanent installation exists. NPX downloads are temporary.
 
 If you used the **Global Install option** (Option 2), uninstall with:
 

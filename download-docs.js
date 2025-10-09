@@ -52,6 +52,7 @@ const componentFiles = [
   "modus-wc-toolbar.md",
   "modus-wc-tooltip.md",
   "modus-wc-typography.md",
+  "modus-wc-utility-panel.md",
 ];
 
 const rulesFiles = [

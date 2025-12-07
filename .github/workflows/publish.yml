@@ -47,15 +47,26 @@ jobs:
       - name: Run tests
         run: npm test --if-present
 
-      - name: Verify npm authentication
+      - name: Verify npm authentication and OIDC
         run: |
-          echo "Checking npm authentication..."
-          npm whoami --registry=https://registry.npmjs.org || echo "Not authenticated (this is expected with OIDC)"
-          echo "Checking package existence..."
+          echo "=== OIDC Token Debug ==="
+          echo "GITHUB_REPOSITORY: ${{ github.repository }}"
+          echo "GITHUB_REF: ${{ github.ref }}"
+          echo "GITHUB_WORKFLOW_REF: ${{ github.workflow_ref }}"
+          echo ""
+          echo "=== Checking npm configuration ==="
+          npm config list
+          echo ""
+          echo "=== Checking .npmrc ==="
+          cat ~/.npmrc 2>/dev/null || echo "No .npmrc file found"
+          echo ""
+          echo "=== Checking package existence ==="
           npm view @julianoczkowski/mcp-modus --registry=https://registry.npmjs.org || echo "Package check completed"
 
       - name: Publish to NPM
         run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ""
 
       - name: Extract version from tag
         id: version

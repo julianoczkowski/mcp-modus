@@ -47,6 +47,13 @@ jobs:
       - name: Run tests
         run: npm test --if-present
 
+      - name: Verify npm authentication
+        run: |
+          echo "Checking npm authentication..."
+          npm whoami --registry=https://registry.npmjs.org || echo "Not authenticated (this is expected with OIDC)"
+          echo "Checking package existence..."
+          npm view @julianoczkowski/mcp-modus --registry=https://registry.npmjs.org || echo "Package check completed"
+
       - name: Publish to NPM
         run: npm publish --access public
 

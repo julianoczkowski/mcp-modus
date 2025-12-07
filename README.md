@@ -123,12 +123,13 @@ The AI will use the MCP server to fetch the latest documentation and provide acc
 - **🛡️ No External Dependencies**: Runs completely offline after installation
 - **✅ Verified Content**: Documentation is verified during our CI/CD process
 - **🚀 Fast & Secure**: No network requests during operation
+- **🔐 Secure Publishing**: Uses npm Trusted Publishers (OIDC) for secure, automated releases with automatic provenance attestation
 
 ## Troubleshooting
 
 ### Server Not Connecting
 
-- Ensure Node.js 18+ is installed: `node --version`
+- Ensure Node.js 20+ is installed: `node --version` (required for npm 11.5.1+ which supports OIDC)
 - For global install: verify with `mcp-modus --help`
 - Check IDE logs for error messages
 

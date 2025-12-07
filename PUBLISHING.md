@@ -194,14 +194,17 @@ Using global installation:
 **For Automated Publishing (GitHub Actions):**
 1. Verify Trusted Publisher is configured in npm portal
 2. Check that the workflow has `id-token: write` permission (already configured)
-3. Ensure the workflow filename matches: `publish.yml`
-4. Verify the repository name matches: `mcp-modus`
-5. Check GitHub Actions logs for specific error messages
+3. Ensure the workflow filename matches: `publish.yml` (exact match, case-sensitive)
+4. Verify the repository name matches: `mcp-modus` (exact match, case-sensitive)
+5. Ensure Node.js 20+ is used (required for npm 11.5.1+ which supports OIDC)
+6. Check GitHub Actions logs for specific error messages
 
 **OIDC Authentication:**
 - The workflow uses Trusted Publishers (OIDC) - no npm tokens needed
+- Requires Node.js 20+ and npm 11.5.1+ for OIDC support
 - If publishing fails, verify Trusted Publisher configuration in npm portal
 - Ensure the GitHub Actions workflow has the correct permissions
+- The workflow automatically updates npm to the latest version
 
 ### Version Already Exists
 
@@ -228,6 +231,12 @@ This project complies with npm's security requirements by using **Trusted Publis
 - ✅ **No Token Rotation**: OIDC uses temporary, job-specific credentials
 - ✅ **Automatic Provenance**: Each published package includes provenance attestation
 - ✅ **Enhanced Security**: No long-lived credentials to manage or leak
+
+### Requirements
+
+- **Node.js 20+**: Required for npm 11.5.1+ which supports OIDC trusted publishing
+- **npm 11.5.1+**: Required for OIDC authentication (automatically updated in workflow)
+- **GitHub Actions**: Must use GitHub-hosted runners (self-hosted runners not supported)
 
 ### Benefits of Trusted Publishers
 

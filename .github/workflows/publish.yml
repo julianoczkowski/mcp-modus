@@ -24,6 +24,9 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: "@julianoczkowski"
 
+      - name: Update npm to latest (required for OIDC)
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: npm ci
 

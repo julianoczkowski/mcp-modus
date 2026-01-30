@@ -4,6 +4,10 @@
   <img src="assets/hero_modus_mcp.png" alt="Modus 2 MCP" width="600">
 </div>
 
+<a href="https://glama.ai/mcp/servers/@julianoczkowski/mcp-modus">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@julianoczkowski/mcp-modus/badge" alt="Modus MCP server" />
+</a>
+
 [![NPM Version](https://img.shields.io/npm/v/@julianoczkowski/mcp-modus)](https://www.npmjs.com/package/@julianoczkowski/mcp-modus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

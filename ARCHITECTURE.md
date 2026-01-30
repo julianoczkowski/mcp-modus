@@ -22,8 +22,8 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
    │  ├─ modus-wc-accordion.md
    │  ├─ modus-wc-alert.md
    │  ├─ modus-wc-button.md
-   │  ├─ ... (40 more files)
-   │  └─ [43 total files] ........ ~170 KB
+   │  ├─ ... (46 more files)
+   │  └─ [49 total files] ........ ~170 KB
    │
    ├─ 🎨 rules/ (Design Rules)
    │  ├─ breakpoints.md
@@ -76,7 +76,7 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 │ Step 3: Run postinstall Script                              │
 │ Executes: node download-docs.js                             │
 │ Downloads fresh docs from 3 GitHub repositories:            │
-│ - components_LLM_docs/ (43 files)                           │
+│ - components_LLM_docs/ (49 files)                           │
 │ - rules_LLM_docs/ (6 files)                                 │
 │ - setup_LLM_docs/ (5 files)                                 │
 └────────────────────────┬────────────────────────────────────┘
@@ -118,7 +118,7 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 │                           ▼                                      │
 │  ┌────────────────────────────────────────────────────────┐      │
 │  │ 2. Load All Documentation                              │      │
-│  │    - Read docs/ directory (43 component files)         │      │
+│  │    - Read docs/ directory (49 component files)         │      │
 │  │    - Read rules/ directory (6 design rule files)       │      │
 │  │    - Read setup/ directory (5 setup guide files)       │      │
 │  │    - Parse metadata and content                        │      │
@@ -170,7 +170,7 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 │ GitHub Repository                                           │
 │ julianoczkowski/QAUI-Modus-Web-Components                   │
 │                                                             │
-│ ├─ /components_LLM_docs/ (43 component files)               │
+│ ├─ /components_LLM_docs/ (49 component files)               │
 │ ├─ /rules_LLM_docs/ (6 design rule files)                   │
 │ └─ /setup_LLM_docs/ (5 setup guide files)                   │
 └────────────┬────────────────────────────────────────────────┘
@@ -182,7 +182,7 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 │ NPM Package Local Storage                                   │
 │ @julianoczkowski/mcp-modus                                  │
 │                                                             │
-│ ├─ /docs/ (43 component files)                              │
+│ ├─ /docs/ (49 component files)                              │
 │ ├─ /rules/ (6 design rule files)                            │
 │ └─ /setup/ (5 setup guide files)                            │
 └─────────────────────────────┼───────────────────────────────┘
@@ -192,11 +192,11 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 ┌─────────────────────────────────────────────────────────────┐
 │ Server Memory (3 Arrays)                                    │
 │                                                             │
-│ this.docs = [ /* 43 ComponentDoc objects */ ]               │
+│ this.docs = [ /* 49 ComponentDoc objects */ ]               │
 │ this.rules = [ /* 6 RuleDoc objects */ ]                    │
 │ this.setup = [ /* 5 SetupDoc objects */ ]                   │
 │                                                             │
-│ Total: 54 documentation objects in memory                   │
+│ Total: 60 documentation objects in memory                   │
 └─────────────────────────────┼───────────────────────────────┘
                               │
                               │ Tool calls (10 different tools)
@@ -211,9 +211,9 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 
 ### 📚 Component Documentation Tools (4)
 
-- `search_components(query)` - Searches across 43 components by name/keyword
+- `search_components(query)` - Searches across 49 components by name/keyword
 - `get_component_docs(component)` - Returns complete docs for specific component
-- `list_all_components()` - Lists all 43 components organized by category
+- `list_all_components()` - Lists all 49 components organized by category
 - `find_by_attribute(attribute)` - Finds components with specific attributes
 
 ### 🎨 Design Rules Tools (3)
@@ -286,7 +286,7 @@ Visual guide to how the MCP Modus server is structured and how it operates with 
 **What gets installed**: A comprehensive Node.js application (~4 MB total) containing:
 
 - Enhanced MCP server implementation (15.2 KB JavaScript)
-- 43 component documentation files (~170 KB)
+- 49 component documentation files (~170 KB)
 - 6 design rule files (~50 KB)
 - 5 setup guide files (~35 KB)
 - MCP SDK dependency (~1-2 MB)

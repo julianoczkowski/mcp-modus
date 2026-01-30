@@ -87,25 +87,91 @@ Add to your config file using one of the JSON configs above:
 
 ## What You Get
 
-### 📚 **Component Documentation** (43+ components)
+### 📚 **Component Documentation** (49 components)
 
-- Complete API documentation for all Modus Web Components
-- Usage examples and best practices
-- Attribute and event references
+Complete API documentation for all Modus Web Components including attributes, events, methods, slots, and usage examples.
 
-### 🎨 **Design System Guidelines**
+<details>
+<summary><strong>View all 49 components</strong></summary>
 
-- Color palettes and usage rules
-- Icon guidelines and available icons
-- Spacing, typography, and layout systems
-- Border radius and stroke guidelines
+| Component                  | Description                             |
+| -------------------------- | --------------------------------------- |
+| `modus-wc-accordion`       | Expandable/collapsible content sections |
+| `modus-wc-alert`           | Contextual feedback messages            |
+| `modus-wc-autocomplete`    | Text input with suggestions             |
+| `modus-wc-avatar`          | User profile images                     |
+| `modus-wc-badge`           | Status indicators and labels            |
+| `modus-wc-breadcrumbs`     | Navigation path indicators              |
+| `modus-wc-button`          | Interactive action buttons              |
+| `modus-wc-button-group`    | Grouped buttons with selection modes    |
+| `modus-wc-card`            | Content container with elevation        |
+| `modus-wc-checkbox`        | Boolean input control                   |
+| `modus-wc-chip`            | Compact interactive elements            |
+| `modus-wc-collapse`        | Animated show/hide content              |
+| `modus-wc-date`            | Date picker input                       |
+| `modus-wc-divider`         | Visual content separator                |
+| `modus-wc-dropdown-menu`   | Contextual menu with trigger            |
+| `modus-wc-file-dropzone`   | Drag-and-drop file upload               |
+| `modus-wc-handle`          | Resizable panel divider                 |
+| `modus-wc-icon`            | Modus icon display                      |
+| `modus-wc-input-feedback`  | Form validation messages                |
+| `modus-wc-input-label`     | Form field labels                       |
+| `modus-wc-loader`          | Loading state indicators                |
+| `modus-wc-logo`            | Trimble/Viewpoint brand logos           |
+| `modus-wc-menu`            | Navigation menu container               |
+| `modus-wc-menu-item`       | Menu navigation items                   |
+| `modus-wc-modal`           | Dialog overlays                         |
+| `modus-wc-navbar`          | Top navigation bar                      |
+| `modus-wc-number-input`    | Numeric input with controls             |
+| `modus-wc-pagination`      | Page navigation controls                |
+| `modus-wc-panel`           | Structured layout container             |
+| `modus-wc-progress`        | Progress indicators                     |
+| `modus-wc-radio`           | Single-select option control            |
+| `modus-wc-rating`          | Star rating input                       |
+| `modus-wc-select`          | Dropdown selection input                |
+| `modus-wc-side-navigation` | Sidebar navigation                      |
+| `modus-wc-skeleton`        | Loading placeholder                     |
+| `modus-wc-slider`          | Range value selector                    |
+| `modus-wc-stepper`         | Multi-step process indicator            |
+| `modus-wc-switch`          | Toggle on/off control                   |
+| `modus-wc-table`           | Data table display                      |
+| `modus-wc-tabs`            | Tabbed content navigation               |
+| `modus-wc-text-input`      | Single-line text input                  |
+| `modus-wc-textarea`        | Multi-line text input                   |
+| `modus-wc-theme-switcher`  | Theme selection control                 |
+| `modus-wc-time-input`      | Time picker input                       |
+| `modus-wc-toast`           | Notification messages                   |
+| `modus-wc-toolbar`         | Action button container                 |
+| `modus-wc-tooltip`         | Contextual hover information            |
+| `modus-wc-typography`      | Text styling component                  |
+| `modus-wc-utility-panel`   | Slide-out utility panel                 |
 
-### ⚙️ **Project Setup Guides**
+</details>
 
-- HTML project setup instructions
-- React project integration guide
-- Theme implementation and customization
-- Testing guidelines and best practices
+### 🎨 **Design System Rules** (6 guides)
+
+Comprehensive design guidelines for building consistent Modus applications.
+
+| Guide           | Coverage                                      |
+| --------------- | --------------------------------------------- |
+| `modus_colors`  | Color tokens, semantic colors, theme palettes |
+| `modus_icons`   | Icon names, sizes, usage guidelines           |
+| `typography`    | Font families, sizes, weights, line heights   |
+| `spacing`       | Spacing scale, margins, padding values        |
+| `breakpoints`   | Responsive breakpoints, media queries         |
+| `radius_stroke` | Border radius values, stroke widths           |
+
+### ⚙️ **Project Setup Guides** (5 guides)
+
+Step-by-step instructions for integrating Modus Web Components.
+
+| Guide             | Coverage                                                  |
+| ----------------- | --------------------------------------------------------- |
+| `setup_html`      | HTML project setup, CDN usage, basic integration          |
+| `setup_react`     | React project setup, npm installation, component usage    |
+| `theme_usage`     | Theme implementation, light/dark modes, customization     |
+| `testing`         | Testing guidelines, accessibility testing, best practices |
+| `universal_rules` | General development rules, coding standards               |
 
 ## Example Usage
 

@@ -5,6 +5,11 @@
  * Used during development and CI/CD to bundle docs with the NPM package.
  *
  * Usage: npm run update-docs
+ *
+ * Downloads:
+ * - 49 component documentation files (modus-wc-*.md)
+ * - 6 design rules files (colors, icons, typography, spacing, breakpoints, radius)
+ * - 5 setup guide files (HTML, React, themes, testing, universal rules)
  */
 
 import { writeFileSync, mkdirSync } from "fs";
@@ -25,6 +30,7 @@ const componentFiles = [
   "modus-wc-badge.md",
   "modus-wc-breadcrumbs.md",
   "modus-wc-button.md",
+  "modus-wc-button-group.md",
   "modus-wc-card.md",
   "modus-wc-checkbox.md",
   "modus-wc-chip.md",
@@ -32,16 +38,20 @@ const componentFiles = [
   "modus-wc-date.md",
   "modus-wc-divider.md",
   "modus-wc-dropdown-menu.md",
+  "modus-wc-file-dropzone.md",
+  "modus-wc-handle.md",
   "modus-wc-icon.md",
   "modus-wc-input-feedback.md",
   "modus-wc-input-label.md",
   "modus-wc-loader.md",
+  "modus-wc-logo.md",
   "modus-wc-menu-item.md",
   "modus-wc-menu.md",
   "modus-wc-modal.md",
   "modus-wc-navbar.md",
   "modus-wc-number-input.md",
   "modus-wc-pagination.md",
+  "modus-wc-panel.md",
   "modus-wc-progress.md",
   "modus-wc-radio.md",
   "modus-wc-rating.md",
@@ -113,7 +123,7 @@ async function downloadDocs() {
     componentFiles,
     DOCS_BASE_URL,
     "docs",
-    "component documentation"
+    "component documentation",
   );
 
   // Download design rules

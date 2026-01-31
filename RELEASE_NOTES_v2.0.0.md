@@ -32,15 +32,15 @@ The following 6 components have been added to the documentation:
 
 ## Package Information
 
-| Metric | Value |
-|--------|-------|
-| Version | 2.0.0 |
-| Node.js | Requires 18+ |
-| Total Components | 49 Modus Web Components |
-| Design Rules | 6 categories |
-| Setup Guides | 5 guides |
-| Total Documentation Files | 60 |
-| MCP Tools | 10 tools across 3 categories |
+| Metric                    | Value                        |
+| ------------------------- | ---------------------------- |
+| Version                   | 2.0.0                        |
+| Node.js                   | Requires 18+                 |
+| Total Components          | 49 Modus Web Components      |
+| Design Rules              | 6 categories                 |
+| Setup Guides              | 5 guides                     |
+| Total Documentation Files | 60                           |
+| MCP Tools                 | 10 tools across 3 categories |
 
 ## Installation
 
